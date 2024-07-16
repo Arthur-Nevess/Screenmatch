@@ -6,7 +6,7 @@ public abstract class Titulo {
     private boolean incluidoNoPlano = false;
     private double avaliação = 0.00;
     private int totalDeAvaliação = 0;
-    private int duração = 0;
+    private int duraçãoEmMinutos = 0;
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -14,8 +14,8 @@ public abstract class Titulo {
 
     private int nota = 0;
 
-    public int getDuração() {
-        return duração;
+    public int getDuraçãoEmMinutos() {
+        return duraçãoEmMinutos;
     }
 
     public void Ficha () {
@@ -45,9 +45,8 @@ public abstract class Titulo {
         this.avaliação = avaliação;
     }
 
-    public void setDuração(int duração) {
-        this.duração = duração;
+    public void setDuraçãoEmMinutos(int duraçãoEmMinutos) {
+        this.duraçãoEmMinutos = duraçãoEmMinutos;
     }
 
-    public abstract int setDuração();
 }

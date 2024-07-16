@@ -1,6 +1,7 @@
 package br.com.alura.screenmatch.modelos;
+import calculo.Classificavel;
 
-public class Filmes extends Titulo{
+public class Filmes extends Titulo implements Classificavel {
 
         private String diretor = "";
 
@@ -10,5 +11,10 @@ public class Filmes extends Titulo{
 
         public void setDiretor(String diretor) {
                 this.diretor = diretor;
+        }
+
+        @Override
+        public int getclassificacao() {
+                return (int)pegaMedia() / 2;
         }
 }

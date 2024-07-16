@@ -38,7 +38,7 @@ package br.com.alura.screenmatch.modelos;
         }
 
         @Override
-        public int setDuração() {
+        public int getDuraçãoEmMinutos() {
             return temporadas * epPorTemporadas * minutosPorEp;
         }
     }

@@ -1,11 +1,15 @@
+import br.com.alura.screenmatch.modelos.Epsodios;
 import br.com.alura.screenmatch.modelos.Filmes;
 import br.com.alura.screenmatch.modelos.Series;
+import calculo.CalculoTempo;
+import calculo.FiltroRecomendacao;
 
 public class Main {
     public static void main(String[] args) {
     //CRIANDO OBJETOS
         Filmes filmes = new Filmes();
-        Series series = new Series();
+        Filmes outroFilme = new Filmes();
+        Series Blindspot = new Series();
 
     // FIlMES
 
@@ -18,25 +22,37 @@ public class Main {
         System.out.println("O filme teve " + filmes.getTotalDeAvaliação() + " avaliações");
         filmes.setDiretor("Ariano");
         System.out.println(filmes.getDiretor());
-        filmes.setDuração(128);
-        System.out.println("O filme tem %d minutos". formatted(filmes.getDuração()));
+        filmes.setDuraçãoEmMinutos(120);
+        System.out.println("O filme tem a duração de " + filmes.getDuraçãoEmMinutos() + " minutos");
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(filmes);
 
+
+        outroFilme.setDuraçãoEmMinutos(180);
     //SERIES
 
         System.out.println("___________________________________________________________");
 
-        series.setNome("Blind Spot");
-        series.setAnoDeLançamento(2013);
-        series.medias(5);
-        series.medias(5);
-        series.medias(3);
+        Blindspot.setNome("Blind Spot");
+        Blindspot.setAnoDeLançamento(2013);
+        Blindspot.medias(5);
+        Blindspot.medias(5);
+        Blindspot.medias(3);
 
-        series.setEpPorTemporadas(10);
-        series.setDuração(51);
-        series.setTemporadas(4);
-        series.Ficha();
-        System.out.println("A série teve " + series.getTotalDeAvaliação() + " avaliações");
-        System.out.println("A serie tem %d minutos". formatted(series.getDuração()));
-        System.out.println(series.getDuração());
+        Blindspot.setEpPorTemporadas(10);
+        Blindspot.setTemporadas(4);
+        Blindspot.setMinutosPorEp(100);
+        Blindspot.Ficha();
+        System.out.println("A série teve " + Blindspot.getTotalDeAvaliação() + " avaliações");
+        System.out.println("Para maratonar a série, levara %d minutos".formatted(Blindspot.getDuraçãoEmMinutos()));
+
+        System.out.println("Sobre blinspot:");
+        Epsodios epsodios = new Epsodios();
+        epsodios.setNumero(2);
+        epsodios.setSeries(Blindspot);
+        epsodios.setTotalDeVisualizacao(100);
+        filtro.filtra(epsodios);
+
+
     }
 }
